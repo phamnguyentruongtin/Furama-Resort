@@ -235,5 +235,9 @@ public class FuramaController {
         model.addAttribute("listRentType", iRentTypeService.rentTypeList());
         return "make_service";
     }
+    @ExceptionHandler(Exception.class)
+    public String catchAllEx(Exception e){
+        return "403";
+    }
 
 }
