@@ -45,7 +45,7 @@ public class FuramaController {
         return "homepage";
     }
 
-
+    //customer controller
     @GetMapping("customer")
     public String homePageCustomer(Model model, @RequestParam(value = "namecustomer", defaultValue = "") String nameCustomer,@RequestParam(value = "dayOfBirth",defaultValue = "") String dateOfBirth,
                                    @RequestParam(value = "phonenumber",defaultValue = "") String phoneNumber,
@@ -90,7 +90,7 @@ public class FuramaController {
         model.addAttribute("listType", iCustomerTypeService.findAllCustomerType());
         return "createclient";
     }
-
+    //employee controller
     @GetMapping("/employee")
     public String homePageEmployee(Model model, @RequestParam(value = "nameemployee", defaultValue = " ") String nameEmployee,
                                    @RequestParam(defaultValue = "0") Integer page) {
@@ -142,7 +142,7 @@ public class FuramaController {
         model.addAttribute("listPos", iPositionService.positionList());
         return "createemployee";
     }
-
+    //contract controller
     @GetMapping("/contract")
     public String homePageContract(@RequestParam(value = "namecustomer", defaultValue = " ") String nameCustomer, Model model, @RequestParam(value = "page", defaultValue = "0") Integer page) {
         int size = 3;
@@ -191,7 +191,7 @@ public class FuramaController {
         model.addAttribute("listSer", facilityService.listAllFacility());
         return "make_contract";
     }
-
+    //service controller
     @GetMapping("service")
     public String homePageService(@RequestParam(value = "nameservice", defaultValue = " ") String nameOfFacility, @RequestParam(value = "page", defaultValue = "0") int page, Model model) {
         int size = 3;
@@ -237,6 +237,7 @@ public class FuramaController {
         model.addAttribute("listRentType", iRentTypeService.rentTypeList());
         return "make_service";
     }
+    //catch Exception
     @ExceptionHandler(Exception.class)
     public String catchAllEx(Exception e){
         return "403";

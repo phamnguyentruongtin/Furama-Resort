@@ -12,7 +12,7 @@ public class Customer {
     private Long idCustomer;
     @NotEmpty(message = "Không Được Rỗng !!!")
     private String nameCustomer;
-//    @Pattern(regexp = "^(19[7-9][0-9]|20[0-2][0-9])-([0][1-9]|[1][0-2])-([0-2][1-9]|[3][0-1])$\n",message = "Sai Định Dạng !!!")
+    @Pattern(regexp = "^(19[7-9][0-9]|20[0-2][0-9])-([0][1-9]|[1][0-2])-([0-2][1-9]|[3][0-1])$\n",message = "Sai Định Dạng !!!")
     private String dayOfBirth;
     @NotEmpty(message = "Không Được Rỗng !!!")
     private String gender;
