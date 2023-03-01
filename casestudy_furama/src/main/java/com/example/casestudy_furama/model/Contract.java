@@ -1,14 +1,19 @@
 package com.example.casestudy_furama.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotEmpty;
 
 @Entity
 public class Contract {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idContract;
+    @NotEmpty
     private String startDay;
+    @NotEmpty
     private String endDay;
+    @Min(10000)
     private Double deposit;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn

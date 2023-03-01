@@ -9,7 +9,7 @@ import java.util.List;
 
 @Service
 public interface ICustomerService {
-    Page<Customer> findAllCustomerWithPage(String nameCustomer, PageRequest pageRequest);
+    Page<Customer> findAllCustomerWithPage(String nameCustomer,String dateOfBirth,String phoneNumber, PageRequest pageRequest);
     void saveCustomer(Customer customer);
     Customer findCustomerByName(String nameCustomer);
     void deleteCustomer(Customer customer);

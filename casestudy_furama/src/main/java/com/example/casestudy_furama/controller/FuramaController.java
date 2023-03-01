@@ -7,6 +7,7 @@ import com.example.casestudy_furama.model.Facility;
 import com.example.casestudy_furama.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -46,10 +47,11 @@ public class FuramaController {
 
 
     @GetMapping("customer")
-    public String homePageCustomer(Model model, @RequestParam(value = "namecustomer", defaultValue = " ") String nameCustomer,
+    public String homePageCustomer(Model model, @RequestParam(value = "namecustomer", defaultValue = "") String nameCustomer,@RequestParam(value = "dayOfBirth",defaultValue = "") String dateOfBirth,
+                                   @RequestParam(value = "phonenumber",defaultValue = "") String phoneNumber,
                                    @RequestParam(defaultValue = "0") Integer page) {
         int size = 3;
-        model.addAttribute("listCus", iCustomerService.findAllCustomerWithPage(nameCustomer, PageRequest.of(page, size)));
+        model.addAttribute("listCus", iCustomerService.findAllCustomerWithPage(nameCustomer,dateOfBirth,phoneNumber, PageRequest.of(page, size)));
         return "homepagecustomer";
     }
 

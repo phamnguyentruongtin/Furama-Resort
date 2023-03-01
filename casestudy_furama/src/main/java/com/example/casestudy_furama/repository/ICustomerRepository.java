@@ -12,8 +12,8 @@ import java.util.List;
 
 @Repository
 public interface ICustomerRepository extends JpaRepository<Customer,Long> {
-    @Query(value = "select * from customer where name_customer like %?% ",nativeQuery = true)
-    Page <Customer>findAllCustomerWithPage(String nameCustomer, PageRequest pageRequest);
+    @Query(value = "select * from customer where name_customer like %?1% and day_of_birth like %?2% and phone_number like %?3% ",nativeQuery = true)
+    Page <Customer>findAllCustomerWithPage(String nameCustomer,String dateOfBirth,String phoneNumber, PageRequest pageRequest);
 
     Customer findCustomerBynameCustomer(String nameCustomer);
 

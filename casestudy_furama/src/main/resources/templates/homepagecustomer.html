@@ -11,8 +11,8 @@
         .card {
             display: inline-block;
             padding: 12px 24px;
-            background-color: #1e90ff;
-            color: #fff;
+            background-color: #c3e6cb;
+            color: black;
             font-size: 16px;
             font-weight: bold;
             text-align: center;
@@ -24,7 +24,7 @@
         }
 
         .card:hover {
-            background-color: #0077b3;
+            background-color: green;
         }
     </style>
 </head>
@@ -54,9 +54,14 @@
                 <a class="nav-link" th:href="@{contract}">Contract</a>
             </li>
             <form class="form-inline ml-auto" action="/customer" method="get">
-                <input style="margin-left: 500px" class="form-control mr-sm-2" type="search" placeholder="Tìm kiếm Khách Hàng"
+                <input style="margin-left: 500px" class="form-control mr-sm-2" type="search" placeholder="Tên Khách Hàng"
                        aria-label="Tìm kiếm" name="namecustomer">
+                <input  style="margin-left: 500px" class="form-control mr-sm-2" type="date" placeholder="Ngày Sinh"
+                       aria-label="Tìm kiếm" name="dayOfBirth">
+                <input style="margin-left: 500px" class="form-control mr-sm-2" type="search" placeholder="Số Điện Thoại"
+                       aria-label="Tìm kiếm" name="phonenumber">
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Tìm kiếm</button>
+
             </form>
         </ul>
     </div>
@@ -68,7 +73,7 @@
     <h1 class="text-center">Danh sách Khách Hàng</h1>
     <div class="container my-5">
         <B th:text="${sms}"></B>
-        <table class="table">
+        <table class="table table-success ">
             <thead>
             <tr>
                 <th>ID Khách Hàng</th>
